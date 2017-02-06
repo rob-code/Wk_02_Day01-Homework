@@ -137,7 +137,7 @@ def test_create_library
   library = Library.new
 end
 
-def test_full_book_hash_listing
+def test_full_book_listing_by_hash
   library = Library.new
   expected_listing = "[{:title=>\"lord_of_the_rings\", :rental_details=>{:student_name=>\"Jeff\", :date=>\"01/12/16\"}}, {:title=>\"war_and_peace\", :rental_details=>{:student_name=>\"Sheila\", :date=>\"01/11/17\"}}]"
   actual_listing = "#{library.books}"
@@ -146,7 +146,7 @@ def test_full_book_hash_listing
   assert_equal(expected_listing, actual_listing)
 end
 
-def test_list_books_and_details
+def test_full_book_listing_reader_friendly_view
   library = Library.new
   library.get_listing
 end
@@ -172,10 +172,7 @@ def test_add_new_book_title
   actual_result = library.get_full_information_listing_for_book("das_boot")
   expected_result = {:title=>"das_boot", :rental_details=>{:student_name=>"", :date=>""}}
   assert_equal(expected_result, actual_result)
-
 end
-
-
 
 def test_change_rental_details
   library = Library.new
@@ -184,17 +181,8 @@ def test_change_rental_details
   expected_result = {:title=>"das_boot", :rental_details=>{:student_name=>"Hermann", :date=>"9/9/1999"}}
   actual_result =  library.get_full_information_listing_for_book("das_boot")
   #puts actual_result
-
   assert_equal(expected_result, actual_result)
-
 end
-
-
-
-
-
-
-
 
 end
 
